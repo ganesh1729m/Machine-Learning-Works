@@ -25,16 +25,19 @@ The dataset is loaded and initial exploration is performed to understand the str
 Data preprocessing steps include:
 - Handling missing values
 - Encoding categorical variables
-- Feature scaling
+- Feature Engineering
 
 ## Exploratory Data Analysis (EDA)
 EDA is performed to identify patterns and relationships in the data. Various visualizations are created to understand the distribution of features and their impact on survival.
 
 ## Model Building
 Several machine learning models are implemented to predict survival, including:
-- Logistic Regression
-- Decision Trees
-- Random Forest
+- DECISTION TREES
+- RANDOM FOREST
+- XGB
+- CAT BOOSTING
+- NEURAL NETWORKS
+All the models have done with HPERPARAMETER TUNING  with RANDOM SEARCH
 
 ## Model Evaluation
 The performance of the models is evaluated using metrics such as accuracy, precision, recall, and F1-score. The best-performing model is selected based on these metrics.
