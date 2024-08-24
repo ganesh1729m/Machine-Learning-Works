@@ -21,3 +21,5 @@ The dataset contains every lesion from a subset of thousands of patients seen be
 ### Training Set Examples
 - **Strongly-labelled tiles**: Labels derived through histopathology assessment.
 - **Weak-labelled tiles**: Tiles not biopsied and considered 'benign' by a doctor.
+
+For more information and to access the `.csv` files, visit the [ISIC 2024 Challenge on Kaggle](https://www.kaggle.com/competitions/isic-2024-challenge/data).
