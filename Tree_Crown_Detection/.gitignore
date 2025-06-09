@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files
+data/
+*.h5
+*.tif
+*.tiff
+*.laz
+*.las
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# PyTorch
+*.pt
+*.pth
+checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Outputs
+figures/
+docs/report.pdf
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
