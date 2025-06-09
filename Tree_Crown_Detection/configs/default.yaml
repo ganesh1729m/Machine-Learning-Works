@@ -1,0 +1,73 @@
+# configs/default.yaml
+
+# -----------------------------------------------------------------------------
+# Dataset and Paths
+# -----------------------------------------------------------------------------
+data:
+  train_images: "/kaggle/input/tree-crown-dataset/neon-dataset/train"
+  val_images:   "/kaggle/input/tree-crown-dataset/neon-dataset/val"
+  test_images:  "/kaggle/input/tree-crown-dataset/neon-dataset/test"
+  annotations:  "/kaggle/input/tree-crown-dataset/neon-dataset/annotations"
+  training_rgb:   "/kaggle/input/tree-crown-dataset/neon-dataset/training/RGB"
+  evaluation_rgb: "/kaggle/input/tree-crown-dataset/neon-dataset/evaluation/RGB"
+
+# -----------------------------------------------------------------------------
+# Model & Checkpointing
+# -----------------------------------------------------------------------------
+model:
+  num_classes: 4            # background + Tree, Larch, Other
+  backbone: "resnet50_fpn"
+  pretrained: true
+  checkpoint_dir: "./checkpoints"
+  resume_from: null         # Path to specific .pth to resume training
+
+# -----------------------------------------------------------------------------
+# Training Hyperparameters
+# -----------------------------------------------------------------------------
+training:
+  seed: 42
+  device: "cuda"            # or "cpu"
+  num_epochs: 50
+  batch_size: 4
+  val_batch_size: 1
+  learning_rate: 0.005
+  momentum: 0.9
+  weight_decay: 0.0005
+  lr_step_size: 3
+  lr_gamma: 0.1
+  train_subset_size: 10000  # number of train samples per epoch
+  val_subset_size: 100      # number of validation samples per epoch
+  shuffle: true
+  num_workers: 2
+  collate_fn: "default"      # custom collate function name if needed
+
+# -----------------------------------------------------------------------------
+# Inference & Post-processing
+# -----------------------------------------------------------------------------
+inference:
+  patch_size: 256
+  overlap: 96
+  score_threshold: 0.6
+  soft_nms_iou: 0.3
+  merge_iou: 0.3
+  hard_nms_iou: 0.1
+
+# -----------------------------------------------------------------------------
+# Evaluation Metrics
+# -----------------------------------------------------------------------------
+evaluation:
+  iou_match_threshold: 0.5
+  compute_ssim: true
+  compute_psnr: true
+  compute_mse: true
+
+# -----------------------------------------------------------------------------
+# Miscellaneous
+# -----------------------------------------------------------------------------
+logging:
+  log_dir: "./logs"
+  log_interval: 10     # print training status every N batches
+
+output:
+  figures_dir: "./figures"
+  reports_dir: "./docs"
